@@ -145,13 +145,12 @@ function getBook(id) {
 
 // Destructuring
 
-const book = getBook(3);
+const book = getBook(1);
 // const title = book.title;
 // const author = book.author;
 // title;
 // author;
 
-/*
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
 
@@ -211,18 +210,15 @@ const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
 spanishTranslation;
 
 // This code with book 1-2
-// console.log(book.reviews.librarything.reviewsCount);
-// const countWrong = book.reviews.librarything.reviewsCount || "no data";
-// countWrong;
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+countWrong;
 
-// const count1 = null ?? "no data";
-// count1;
-// const count2 = book.reviews.librarything.reviewsCount ?? "no data";
-// count2;
+const count1 = null ?? "no data";
+count1;
+const count2 = book.reviews.librarything.reviewsCount ?? "no data";
+count2;
 
-*/
-
-/*
 // Optional Chaining
 function getTotalReviewCount(book) {
   const goodreads = book.reviews?.goodreads?.reviewsCount;
@@ -292,9 +288,7 @@ const booksAfterUpdate = booksAfterDelete.map((book) =>
   book.id == 1 ? { ...book, pages: 1 } : book
 );
 booksAfterUpdate;
-*/
 
-/*
 //Asynchronous JS
 fetch("https://jsonplaceholder.typicode.com/todos")
   .then((response) => response.json())
@@ -303,14 +297,15 @@ fetch("https://jsonplaceholder.typicode.com/todos")
 // until we receive the response
 // That is why in the console Jonas is printed before the response
 console.log("jonas");
-*/
 
 // Async/Await - Better syntax then above to have async comparmentalized
 async function getToDos() {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos");
   const data = await res.json();
   console.log(data);
+  return data;
 }
 getToDos();
+console.log(getToDos());
 
 console.log("jonas");
