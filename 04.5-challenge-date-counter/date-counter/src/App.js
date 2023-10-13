@@ -6,18 +6,26 @@ export default function App() {
   const date = new Date();
   date.setDate(date.getDate() + count);
 
+  function handleReset() {
+    setStep(1);
+    setCount(0);
+  }
+
   return (
     <div className="center">
       <div>
-        <button onClick={step > 1 ? () => setStep((s) => s - 1) : null}>
-          -
-        </button>
-        <span>Step: {step}</span>
-        <button onClick={() => setStep((s) => s + 1)}>+</button>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+        <span>{step}</span>
       </div>
       <div>
         <button onClick={() => setCount((c) => c - step)}>-</button>
-        <span>Count: {count}</span>
+        <input type="text" value={count} />
         <button onClick={() => setCount((c) => c + step)}>+</button>
       </div>
       <div>
@@ -30,6 +38,9 @@ export default function App() {
         <span>
           {count < 0 ? `${count * -1} days ago was ${date.toDateString()}` : ""}
         </span>
+      </div>
+      <div>
+        <button onClick={handleReset}>Reset</button>
       </div>
     </div>
   );
